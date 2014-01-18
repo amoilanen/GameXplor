@@ -2,28 +2,13 @@
 <html ng-app="explorerApp">
   <head>
     <link rel="stylesheet" type="text/css" href="client/styles/explorer.css">
-    <script src="client/lib/angular.min.js"></script>
+    <script src="client/lib/angular.js"></script>
+    <script src="client/lib/angular-animate.js"></script>
+    <script src="client/lib/angular-resource.js"></script>
+    <script src="client/lib/angular-route.js"></script>
     <script src="client/src/explorer.js"></script>
   </head>
-  <body ng-controller="VideoController">
-    <h1>Game Videos</h1>
-    <div class="filter-container">
-      <span class="filter-label">Filter:</span>
-      <select class="filter-select" ng-model="gameId">
-        <option class="filter-option" value="-1">All games</option>
-        <option class="filter-option" ng-repeat="game in games" value="{{game.id}}">{{game.name}}</option>
-      </select>
-    </div>
-    <div>
-      <div class="video-preview" ng-repeat="video in videos">
-        <img class="preview-thumbnail" src="{{video.preview_thumbnail}}" />
-        <div class="preview-details">
-          <div class="preview-title">"{{video.title}}"</div>
-          <div class="preview-owner">
-            <a href="http://www.everyplay.com/{{video.user.username}}">{{video.user.username}}</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <body>
+    <div class="view-container" ng-view></div>
   </body>
 </html>

@@ -8,7 +8,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'client/lib/angular.min.js',
-      'test/lib/angular-resource.min.js',
+      'client/lib/angular-animate.min.js',
+      'client/lib/angular-resource.min.js',
+      'client/lib/angular-route.min.js',
       'test/lib/angular-mocks.js',
       'client/src/*.js',
       'test/unit/*.spec.js'
