@@ -8,7 +8,7 @@
 </div>
 <div>
   <div class="video-preview" ng-repeat="video in videos">
-    <img class="preview-thumbnail" src="{{video.preview_thumbnail}}" />
+    <img ng-click="openDetails(video)" class="preview-thumbnail" src="{{video.preview_thumbnail}}" />
     <div class="preview-details">
       <div class="preview-title">"{{video.title}}"</div>
       <div class="preview-owner">
