@@ -6,9 +6,8 @@ DONE
 DONE
 - Fetch the list of featured games and populate the filter drop-down
 DONE
-
 - Implement filtering when a game or All is selected in the filter drop-down
-
+DONE
 
 - Add loading animation
 - Show game video when clicking on a game thumbnail or title

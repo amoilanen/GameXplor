@@ -27,6 +27,9 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'test/unit/karma.unit.conf.js'
             },
+            integration: {
+                configFile: 'test/integration/karma.integration.conf.js'
+            },
             e2e: {
                 configFile: 'test/e2e/karma.e2e.conf.js'
             }

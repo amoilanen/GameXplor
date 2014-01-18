@@ -1,13 +1,13 @@
 describe('VideoController', function() {
-    var scope = null,
-        games = [],
+    var games = [],
         videos = [];
 
     beforeEach(module('explorerApp'));
 
-    function instantiateController() {
+    function instantiateController(callback) {
         inject(function($rootScope, $controller) {
-            scope = $rootScope.$new();
+            var scope = $rootScope.$new();
+
             $controller('VideoController', {$scope: scope, 
                 GameVideoService: {
                     get: function(path, callback) {
@@ -23,30 +23,36 @@ describe('VideoController', function() {
                     }
                 }
             });
+            scope.$apply();
+            callback && callback(scope);
         });
     }
 
     it('has empty initial video list', function() {
         videos = [];
-        instantiateController();
-        expect(scope.videos).toEqual([]);
+        instantiateController(function(scope) {
+            expect(scope.videos).toEqual([]);
+        });
     });
 
     it('fetches video list from GameVideoService', function() {
         videos = ["video1", "video2", "video3"];
-        instantiateController();
-        expect(scope.videos).toEqual(videos);
+        instantiateController(function(scope) {
+            expect(scope.videos).toEqual(videos);
+        });
     });
 
     it('has empty initial game list', function() {
         games = [];
-        instantiateController();
-        expect(scope.games).toEqual(games);
+        instantiateController(function(scope) {
+            expect(scope.games).toEqual(games);
+        });
     });
 
     it('fetches game list from GameVideoService', function() {
         games = ["game1", "game2", "game3"];
-        instantiateController();
-        expect(scope.games).toEqual(games);
+        instantiateController(function(scope) {
+            expect(scope.games).toEqual(games);
+        });
     });
 });
