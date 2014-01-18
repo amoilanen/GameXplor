@@ -57,6 +57,13 @@ h1 {
 
 .preview-thumbnail {
   box-shadow: 10px 10px 5px #888;
+  cursor: pointer;
+}
+
+.preview-thumbnail:hover {
+  transform: translate(5px,5px);
+  -ms-transform: translate(5px,5px); /* IE 9 */
+  -webkit-transform: translate(5px,5px); /* Safari and Chrome */
 }
 
 .preview-thumbnail,
