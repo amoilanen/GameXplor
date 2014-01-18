@@ -1,0 +1,39 @@
+body {
+  color: #222;
+  font-family: "Comic Sans MS";
+}
+
+h1 {
+  font-size: 45px;
+}
+
+.video-preview {
+  maring-top: 32px;
+  margin-bottom: 32px;
+}
+
+.preview-thumbnail {
+  box-shadow: 10px 10px 5px #888;
+}
+
+.preview-thumbnail,
+.preview-details {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 32px;
+}
+
+.preview-details {
+}
+
+.preview-title,
+.preview-owner {
+  margin-top: 8px;
+}
+
+.preview-owner {
+  font-style: italic;
+}
+
+.preview-title {
+}

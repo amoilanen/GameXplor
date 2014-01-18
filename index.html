@@ -1,19 +1,22 @@
 <!doctype html>
 <html ng-app="explorerApp">
   <head>
+    <link rel="stylesheet" type="text/css" href="client/styles/explorer.css">
     <script src="client/lib/angular.min.js"></script>
     <script src="client/src/explorer.js"></script>
   </head>
   <body>
     <h1>Game Videos</h1>
     <div ng-controller="VideoController">
-      <ul>
-        <li ng-repeat='video in videos'>
-          <div class="video-preview">
-            {{video.preview_thumbnail}} - "{{video.title}}" {{video.game.owner.username}}
+      <div class="video-preview" ng-repeat="video in videos">
+        <img class="preview-thumbnail" src="{{video.preview_thumbnail}}" />
+        <div class="preview-details">
+          <div class="preview-title">"{{video.title}}"</div>
+          <div class="preview-owner">
+            <a href="http://www.everyplay.com/{{video.user.username}}">{{video.user.username}}</a>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </body>
 </html>
