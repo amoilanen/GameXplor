@@ -1,0 +1,19 @@
+- Fetch list of all videos (limit 10) and display it as text
+- Each video should be displayed as a thumbnail with author and title
+- Fetch the list of featured games and populate the filter drop-down
+- Implement filtering when a game or All is selected in the filter drop-down
+- Add loading animation
+- Show game video when clicking on a game thumbnail or title
+
+Milestone 1
+
+- Add pagination for the search results
+- Minify the JavaScript, create a production version of the app
+- Add integration with other services where game videos can be found? Like youtube.com
+- Create a back-end (in Node.JS), add more functionality:
+  -- Show the number of overall results, allow the user to login
+  -- Suggest recommendations based on the browsing history
+  -- Add ability to like videos
+  -- etc.
+
+Milestone 2

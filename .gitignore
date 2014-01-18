@@ -2,3 +2,4 @@
 .git
 .project
 .jshintrc
+node_modules
