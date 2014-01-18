@@ -9,12 +9,11 @@ var app = express();
 
 app.use(express.static(__dirname + '/../..'));
 
-app.get('/videos',function(request, response) {
-    var limit = request.query.limit || DEFAULT_VIDEO_LIMIT;
+function proxyRequestTo(url, request, response) {
+    var limit = request.query.limit || DEFAULT_VIDEO_LIMIT,
+        data = "";
 
-    var data = "";
-
-    https.get("https://everyplay.com/api/playlists/1/videos?client_id=" + EVERYPLAY_CLIENT_ID + "&limit=" + limit, function(res) {
+    https.get(url + "client_id=" + EVERYPLAY_CLIENT_ID + "&limit=" + limit, function(res) {
         res.on('data', function (chunk) {
             data += chunk.toString();
         }).on('end', function() {
@@ -25,6 +24,14 @@ app.get('/videos',function(request, response) {
         //TODO: Communicate this to the client
         console.error("Error while fetching videos" + e.message);
     });
+}
+
+app.get('/videos',function(request, response) {
+    proxyRequestTo("https://everyplay.com/api/playlists/1/videos?", request, response);
+});
+
+app.get('/games',function(request, response) {
+    proxyRequestTo("https://everyplay.com/api/games/featured?data=all&", request, response);
 });
 
 app.listen(DEFAULT_PORT);

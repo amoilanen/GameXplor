@@ -5,12 +5,13 @@ describe('GameXplor', function() {
       expect(element('h1').text()).toEqual("Game Videos");
   });
 
-  it('should show list of videos on first page', function() {
+  it('should show list of videos and populate game filter on the first page', function() {
       browser().navigateTo('/index.html');
 
-      //Sleep for 5 seconds
       sleep(3);
 
+      //i.e. there are options other than "All games"
+      expect(repeater('.filter-select .filter-option').count()).toBeGreaterThan(1);
       expect(repeater('div.video-preview').count()).toEqual(5);
   });
 });

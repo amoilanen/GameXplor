@@ -4,13 +4,15 @@ describe('VideoController', function() {
 
     beforeEach(module('explorerApp'));
 
-    function instantiateVideoController() {
+    function instantiateController() {
         inject(function($rootScope, $controller) {
             scope = $rootScope.$new();
             $controller('VideoController', {$scope: scope, 
                 GameVideoService: {
-                    getAllVideos: function(callback) {
-                        callback(videos);
+                    get: function(path, callback) {
+                        if (videos.length > 0) {
+                            callback(videos);
+                        }
                     }
                 }
             });
@@ -19,13 +21,13 @@ describe('VideoController', function() {
 
     it('has empty initial video list', function() {
         videos = [];
-        instantiateVideoController();
+        instantiateController();
         expect(scope.videos).toEqual([]);
     });
 
     it('fetches video list from GameVideoService', function() {
         videos = ["video1", "video2", "video3"];
-        instantiateVideoController();
-        expect(scope.videos).toEqual(["video1", "video2", "video3"]);
+        instantiateController();
+        expect(scope.videos).toEqual(videos);
     });
 });

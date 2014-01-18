@@ -7,6 +7,13 @@
   </head>
   <body>
     <h1>Game Videos</h1>
+    <div class="filter-container">
+      <span class="filter-label">Filter:</span>
+      <select class="filter-select" ng-controller="GameController">
+        <option class="filter-option" value="-1">All games</option>
+        <option class="filter-option" ng-repeat="game in games" value="{{game.id}}">{{game.name}}</option>
+      </select>
+    </div>
     <div ng-controller="VideoController">
       <div class="video-preview" ng-repeat="video in videos">
         <img class="preview-thumbnail" src="{{video.preview_thumbnail}}" />
