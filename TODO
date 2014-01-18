@@ -8,13 +8,15 @@ DONE
 DONE
 - Implement filtering when a game or All is selected in the filter drop-down
 DONE
-
-- Add loading animation
 - Show game video when clicking on a game thumbnail or title
+DONE
+- Add loading animation
+
+- Error handling
+
   -- Unit tests for video details controller
   -- E2E for navigating using the link on the image
   -- Integration tests for routes
-- Error handling
 
 Milestone 1
 

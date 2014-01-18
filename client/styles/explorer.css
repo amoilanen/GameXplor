@@ -1,16 +1,42 @@
 body {
   color: #222;
   font-family: "Comic Sans MS";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+.view-container {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  overflow: auto;
+  z-index: 0;
+}
+
+.loading-shield {
+  background-color: black;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  opacity: 0.5;
+  background-image: url("/client/styles/ajax_loader_blue_64.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment:fixed;
+  background-position:center; 
+  z-index: 1;
 }
 
 /*
  * Video list view.
  */
-
-.view-container {
-  width: 100%;
-  height: 100%;
-}
 
 h1 {
   font-size: 45px;

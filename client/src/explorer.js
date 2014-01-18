@@ -43,20 +43,25 @@ app.controller("VideoController", ['$location', '$rootScope', '$scope', 'GameVid
     function retrieveVideos(gameId) {
         var path = (gameId >= 0) ? "/videos?gameId=" + gameId : "/videos";
 
+        $rootScope.isLoading = true;
         gameVideoService.get(path, function(videos) {
             $scope.videos = videos;
+            $rootScope.isLoading = false;
         });
     }
 
     function retrieveGames() {
+        $rootScope.isLoading = true;
         gameVideoService.get("/games", function(games) {
             $scope.games = games;
+            $rootScope.isLoading = false;
         });
     }
 
     $scope.videos = [];
     $scope.games = [];
     $scope.gameId = -1;
+    $rootScope.isLoading = false;
 
     retrieveGames();
 
