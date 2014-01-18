@@ -1,8 +1,30 @@
-var connect = require('connect');
+var express = require('express'),
+    https = require('https');
 
-//Serving static content
-connect.createServer(
-    connect.static('../..')
-).listen(8000);
+var DEFAULT_PORT = 8000,
+    DEFAULT_VIDEO_LIMIT = 5,
+    EVERYPLAY_CLIENT_ID = "336d586b6e1b5e4a0f9eaa48e7e697d8cd51db40";
 
-//TODO: Proxifying calls to external services can be done here
+var app = express();
+
+app.use(express.static(__dirname + '/../..'));
+
+app.get('/videos',function(request, response) {
+    var limit = request.query.limit || DEFAULT_VIDEO_LIMIT;
+
+    var data = "";
+
+    https.get("https://everyplay.com/api/playlists/1/videos?client_id=" + EVERYPLAY_CLIENT_ID + "&limit=" + limit, function(res) {
+        res.on('data', function (chunk) {
+            data += chunk.toString();
+        }).on('end', function() {
+            response.write(data);
+            response.end();
+        });
+    }).on('error', function(e) {
+        //TODO: Communicate this to the client
+        console.error("Error while fetching videos" + e.message);
+    });
+});
+
+app.listen(DEFAULT_PORT);

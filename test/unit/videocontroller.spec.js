@@ -1,14 +1,31 @@
 describe('VideoController', function() {
-    var $scope;
+    var scope = null,
+        videos = [];
 
     beforeEach(module('explorerApp'));
 
-    beforeEach(inject(function($rootScope, $controller) {
-        $scope = $rootScope.$new();
-        $controller('VideoController', {$scope: $scope});
-    }));
+    function instantiateVideoController() {
+        inject(function($rootScope, $controller) {
+            scope = $rootScope.$new();
+            $controller('VideoController', {$scope: scope, 
+                GameVideoService: {
+                    getAllVideos: function(callback) {
+                        callback(videos);
+                    }
+                }
+            });
+        });
+    }
 
-    it('should have initial video list', function() {
-        expect($scope.videos).toBe("The list of available videos...");
+    it('has empty initial video list', function() {
+        videos = [];
+        instantiateVideoController();
+        expect(scope.videos).toEqual([]);
+    });
+
+    it('fetches video list from GameVideoService', function() {
+        videos = ["video1", "video2", "video3"];
+        instantiateVideoController();
+        expect(scope.videos).toEqual(["video1", "video2", "video3"]);
     });
 });

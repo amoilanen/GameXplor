@@ -1,5 +1,7 @@
 - Fetch list of all videos (limit 10) and display it as text
+DONE
 - Each video should be displayed as a thumbnail with author and title
+- Style the results with CSS
 - Fetch the list of featured games and populate the filter drop-down
 - Implement filtering when a game or All is selected in the filter drop-down
 - Add loading animation

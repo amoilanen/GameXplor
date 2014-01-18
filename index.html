@@ -5,6 +5,15 @@
     <script src="client/src/explorer.js"></script>
   </head>
   <body>
-    <div ng-controller="VideoController">{{videos}}</div>
+    <h1>Game Videos</h1>
+    <div ng-controller="VideoController">
+      <ul>
+        <li ng-repeat='video in videos'>
+          <div class="video-preview">
+            {{video.preview_thumbnail}} - "{{video.title}}" {{video.game.owner.username}}
+          </div>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
