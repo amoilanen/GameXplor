@@ -13,6 +13,7 @@ function proxyRequestTo(url, request, response) {
     var limit = request.query.limit || DEFAULT_RESULT_LIMIT,
         data = "";
 
+    response.set('Content-Type', 'application/json');
     https.get(url + "client_id=" + EVERYPLAY_CLIENT_ID + "&limit=" + limit, function(res) {
         res.on('data', function (chunk) {
             data += chunk.toString();
