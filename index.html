@@ -5,16 +5,16 @@
     <script src="client/lib/angular.min.js"></script>
     <script src="client/src/explorer.js"></script>
   </head>
-  <body>
+  <body ng-controller="VideoController">
     <h1>Game Videos</h1>
     <div class="filter-container">
       <span class="filter-label">Filter:</span>
-      <select class="filter-select" ng-model="gameId" ng-controller="GameController">
+      <select class="filter-select" ng-model="gameId">
         <option value="-1">All games</option>
         <option ng-repeat="game in games" value="{{game.id}}">{{game.name}}</option>
       </select>
     </div>
-    <div ng-controller="VideoController">
+    <div>
       <div class="video-preview" ng-repeat="video in videos">
         <img class="preview-thumbnail" src="{{video.preview_thumbnail}}" />
         <div class="preview-details">
