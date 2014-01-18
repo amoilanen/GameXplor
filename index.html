@@ -9,9 +9,9 @@
     <h1>Game Videos</h1>
     <div class="filter-container">
       <span class="filter-label">Filter:</span>
-      <select class="filter-select" ng-controller="GameController">
-        <option class="filter-option" value="-1">All games</option>
-        <option class="filter-option" ng-repeat="game in games" value="{{game.id}}">{{game.name}}</option>
+      <select class="filter-select" ng-model="gameId" ng-controller="GameController">
+        <option value="-1">All games</option>
+        <option ng-repeat="game in games" value="{{game.id}}">{{game.name}}</option>
       </select>
     </div>
     <div ng-controller="VideoController">

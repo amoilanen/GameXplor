@@ -36,5 +36,6 @@ app.controller("GameController", ['$scope', 'GameVideoService', function($scope,
       //console.log("Received videos = ", videos);
       $scope.games = games;
   });
+  $scope.gameId = "-1";
 //  $scope.games = games;
 }]);
