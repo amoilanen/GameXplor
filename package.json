@@ -1,0 +1,45 @@
+{
+  "name": "GameXplor",
+  "version": "0.0.1",
+  "description": "Game videos exploring application",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "connect": "~2.12.0",
+    "express": "~3.4.8"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-karma": "~0.6.2",
+    "karma-coffee-preprocessor": "~0.1.2",
+    "karma": "~0.10.9",
+    "karma-chrome-launcher": "~0.1.2",
+    "karma-firefox-launcher": "~0.1.3",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-jasmine": "~0.1.5",
+    "karma-ng-scenario": "~0.1.0",
+    "karma-phantomjs-launcher": "~0.1.1",
+    "karma-requirejs": "~0.2.1",
+    "karma-script-launcher": "~0.1.0",
+    "requirejs": "~2.1.10"
+  },
+  "scripts": {
+    "test": "grunt karma"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antivanov/GameXplor"
+  },
+  "keywords": [
+    "angularjs"
+  ],
+  "author": "Anton Ivanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antivanov/GameXplor/issues"
+  },
+  "homepage": "https://github.com/antivanov/GameXplor"
+}
