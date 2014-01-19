@@ -2,7 +2,7 @@ var express = require('express'),
     https = require('https');
 
 var DEFAULT_PORT = 8000,
-    DEFAULT_RESULT_LIMIT = 5,
+    DEFAULT_RESULT_LIMIT = 10,
     EVERYPLAY_CLIENT_ID = "336d586b6e1b5e4a0f9eaa48e7e697d8cd51db40";
 
 var app = express();
@@ -22,8 +22,9 @@ function proxyRequestTo(url, request, response) {
             response.end();
         });
     }).on('error', function(e) {
-        //TODO: Communicate this to the client
-        console.error("Error while fetching videos" + e.message);
+        response.statusCode = 500;
+        response.write(e.message);
+        response.end();
     });
 }
 

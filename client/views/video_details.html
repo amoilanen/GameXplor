@@ -1,5 +1,5 @@
 <div>
-  <div class="video-details-title">{{video.title}}</div>
+  <div class="video-details-title">"{{video.title}}"</div>
 
   <video width="320" height="240" controls>
     <source src="{{video.video_url}}" type="video/mp4" />
@@ -10,7 +10,7 @@
     <div class="video-details-user">
       <img src="{{video.user.avatar_url}}" />
       <div class="video-details-username">
-        {{video.user.username}}
+        <a href="http://www.everyplay.com/{{video.user.username}}">{{video.user.username}}</a>
       </div>
     </div>
     <div class="video-details-date-posted">
